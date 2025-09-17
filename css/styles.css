@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fafafa;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.year-card {
+  display: inline-block;
+  margin: 1rem;
+  padding: 2rem;
+  background: #fda085;
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+  gap: 1rem;
+  margin: 2rem;
+}
+
+figure {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+figure img {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+}
