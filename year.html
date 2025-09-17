@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Альбоми</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header><h1 id="title"></h1></header>
+  <main id="albums"></main>
+
+  <script type="module">
+    import { photosByYear } from "./photos.js";
+
+    const params = new URLSearchParams(location.search);
+    const year = params.get("year");
+    document.getElementById("title").textContent = `Альбоми ${year}`;
+
+    const albums = Object.keys(photosByYear[year]);
+    const container = document.getElementById("albums");
+
+    albums.forEach(album => {
+      const a = document.createElement("a");
+      a.href = `album.html?year=${year}&album=${album}`;
+      a.className = "year-card";
+      a.textContent = album;
+      container.appendChild(a);
+    });
+  </script>
+</body>
+</html>

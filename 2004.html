@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Фото 2004</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Фото 2004</h1>
+  </header>
+
+  <main>
+    <div id="grid" class="photo-grid"></div>
+  </main>
+
+  <div id="lightbox"><img src=""></div>
+
+  <footer><p>© 2025 Наша родина</p></footer>
+
+  <script type="module">
+    import { photosByYear } from "./photos.js";
+    const year = "2004";
+
+    const grid = document.getElementById("grid");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+
+    photosByYear[year].forEach(file => {
+      const figure = document.createElement("figure");
+      const img = document.createElement("img");
+      img.src = `images/${year}/${file}`;
+      img.alt = file;
+      img.addEventListener("click", () => {
+        lightboxImg.src = `images/${year}/${file}`;
+        lightbox.style.display = "flex";
+      });
+      figure.appendChild(img);
+      grid.appendChild(figure);
+    });
+
+    lightbox.addEventListener("click", () => lightbox.style.display = "none");
+  </script>
+</body>
+</html>
